@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>New Entry</h2>
+<form action="/add" method="post">
+  <textarea name="content" rows="3" cols="40" placeholder="text here.." required></textarea>
+  <br>
+  <button type="submit">Save</button>
+</form>
+
+<h2>Recent Entries</h2>
+<ul>
+  {% for e in entries %}
+    <li>{{ e["created_at"] }} - {{ e["content"]}}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

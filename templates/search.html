@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Search</h2>
+<form action="/search" method="get">
+  <input type="text" name="q" value="{{ q }}">
+  <button type="submit">Search</button>
+</form>
+
+{% if q %}
+<h3>Results for "{{ q }}"</h3>
+<ul>
+  {% for r in results %}
+  <li>{{ r["created_at"] }} - {{ r["content"] }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
